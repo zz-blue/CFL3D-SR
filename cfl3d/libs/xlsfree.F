@@ -134,9 +134,10 @@ c             denominator
               
 c             length scale
 c             xls = sqrt(abs(-dds)/ccmax(dd,1.e-10))
-              xls = -dds/ccmax(dd,1.e-10)
-c             spatial average desired as in Shur et al. (2015)
-              xlesfr(j,k,i) = cdesamd*cdesamd*xls
+              xls2= -dds/ccmax(dd,1.e-10)
+c             spatial average used in Shur et al. (2015)
+              xlesfr(j,k,i) = cdesamd*cdesamd*xls2
+c             xlesfr(j,k,i) = cdesamd*xls
 c       
             enddo
           enddo

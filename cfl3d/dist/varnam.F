@@ -40,10 +40,10 @@ c
       write(121,'(a)') 'Q'
       write(121,'(a)') 'GRAD_RHO'
       write(121,'(a)') 'GRAD_P'
-      write(121,'(a)') 'SIGMA'
       write(121,'(a)') 'FD'
-      write(121,'(a)') 'LHYB'
-      write(121,'(a)') 'LFR'
+      write(121,'(a)') 'LRANS'
+      write(121,'(a)') 'LLES'
+      write(121,'(a)') 'XBLEND'
       close(121)
 c
       open(unit=121,file='field_avg.nam',form='formatted')
@@ -84,14 +84,14 @@ c
       write(121,'(a)') 'GRAD_RHO_RMS'
       write(121,'(a)') 'GRAD_P_AVG'
       write(121,'(a)') 'GRAD_P_RMS'
-      write(121,'(a)') 'SIGMA_AVG'
-      write(121,'(a)') 'SIGMA_RMS'
       write(121,'(a)') 'FD_AVG'
       write(121,'(a)') 'FD_RMS'
-      write(121,'(a)') 'LHYB_AVG'
-      write(121,'(a)') 'LHYB_RMS'
-      write(121,'(a)') 'LFR_AVG'
-      write(121,'(a)') 'LFR_RMS'
+      write(121,'(a)') 'LRANS_AVG'
+      write(121,'(a)') 'LRANS_RMS'
+      write(121,'(a)') 'LLES_AVG'
+      write(121,'(a)') 'LLES_RMS'
+      write(121,'(a)') 'XBLEND_AVG'
+      write(121,'(a)') 'XBLEND_RMS'
       close(121)
 c
       open(unit=121,file='surf.nam',form='formatted')

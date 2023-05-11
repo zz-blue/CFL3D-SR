@@ -2531,10 +2531,10 @@ c
 c     
       if ((ides .eq. 11 .or. ides .eq. 12 .or. ides .eq. 13 )
      +  .and. (ivmx .eq. 6 .or. ivmx .eq. 7)) then
-        vdsp(1:jdim-1,1:kdim-1,1:idim-1,7) = fd
+        vdsp(1:jdim-1,1:kdim-1,1:idim-1,7) = fdsav
         vdsp(1:jdim-1,1:kdim-1,1:idim-1,8) = xrans
         vdsp(1:jdim-1,1:kdim-1,1:idim-1,9) = xles
-        vdsp(1:jdim-1,1:kdim-1,1:idim-1,10) = xlhyb
+        vdsp(:,:,:,10) = xblend
       end if
 c      
 c  Source terms for k-omega (Wilcox & SST):
