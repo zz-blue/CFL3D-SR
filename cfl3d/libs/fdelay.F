@@ -44,7 +44,7 @@ c
 c
       common /twod/ i2d
       common /axisym/ iaxi2plane,iaxi2planeturb,istrongturbdis,iforcev0
-      common /des/ cdes,ides,cddes,cdesamd,lfe,cdt1,clim,lnwsc
+      common /des/ cdes,ides,cddes,cdesamd,lfe,cdt1,clim,lnwsc,cf1,cf2
 c
       if(ides.eq.11 .or. ides.eq.12 .or. ides.eq.13) then
 c

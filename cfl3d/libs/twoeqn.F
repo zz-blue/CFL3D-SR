@@ -85,7 +85,7 @@ c
       common /easmlim/ cmulim
       common /axisym/ iaxi2plane,iaxi2planeturb,istrongturbdis,iforcev0
       common /numerics/ iblend,lxblend,blendlim(2)
-      common /des/ cdes,ides,cddes,cdesamd,lfe,cdt1,clim,lnwsc
+      common /des/ cdes,ides,cddes,cdesamd,lfe,cdt1,clim,lnwsc,cf1,cf2
 c
       dimension q(jdim,kdim,idim,5),sj(jdim,kdim,idim-1,5),
      + sk(jdim,kdim,idim-1,5),si(jdim,kdim,idim,5),vol(jdim,kdim,idim-1)
@@ -2462,7 +2462,7 @@ c       AMD-IDDES
               fd   = fdsav(j,k,i)
               xmuf = tur10(2)/tur10(1) !muf=nuf
               rf   = fnu(j,k,i)/ccmax(vist3d(j,k,i)-xmuf,1.e-6*xmuf)
-              ff   = cctanh((0.2*rf)**6)
+              ff   = cctanh((cf1*rf)**cf2)
               fdf  = ccmax(fd,ff)
 c             xls  = fdf*(cdes*deltam) + (1.-fdf)*xls
 c             using the following form if the blending is soft
@@ -2506,7 +2506,7 @@ c       modified/simplified SLA-IDDES
               fd   = fdsav(j,k,i)
               xmuf = tur10(2)/tur10(1) !muf=nuf
               rf   = fnu(j,k,i)/ccmax(vist3d(j,k,i)-xmuf,1.e-6*xmuf)
-              ff   = cctanh((0.2*rf)**6)
+              ff   = cctanh((cf1*rf)**cf2)
               fdf  = ccmax(fd,ff)
 c             xls  = fdf*(cdes*deltam) + (1.-fdf)*xls
 c             using the following form if the blending is soft

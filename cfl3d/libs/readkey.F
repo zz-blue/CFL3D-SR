@@ -137,7 +137,7 @@ c
       common /massflow_control/ imass_start, xmass_slope !zyf
       common /ibc2003/ ibc2003_grid_direction !zyf
       common /numerics/ iblend,lxblend,blendlim(2)
-      common /des/ cdes,ides,cddes,cdesamd,lfe,cdt1,clim,lnwsc
+      common /des/ cdes,ides,cddes,cdesamd,lfe,cdt1,clim,lnwsc,cf1,cf2
       common /unclass/ ioffbody,isample
       
       ptotratio=0.0
@@ -1075,9 +1075,21 @@ c     limit of (AMD) length scale
 c     set as 0.1-0.2 by default later
       clim        = -1.0
       nkey        = nkey + 1
+      
 c     turn on near-wall scale in IDDES
 c     turned on by default
       lnwsc       = 1
+      nkey        = nkey + 1
+      
+c     cf1 in ff
+c     large value covers a wide region of farfield
+c     0.2 in Shur et al., 2015
+      cf1         = 0.2
+      nkey        = nkey + 1
+      
+c     cf2 in ff
+c     large value yields rapid switching
+      cf2         = 6.0
       nkey        = nkey + 1
 c
 c*********************************************
@@ -2166,6 +2178,14 @@ c
       else if (inpstr(lc1:lc2).eq.'lnwsc') then
          lc2 = lc2 +1
          read(inpstr(lc2:lcl),*) lnwsc
+      else if (inpstr(lc1:lc2).eq.'cf1') then
+         lc2 = lc2 +1
+         read(inpstr(lc2:lcl),*) realval(1)
+         cf1     = realval(1)
+      else if (inpstr(lc1:lc2).eq.'cf2') then
+         lc2 = lc2 +1
+         read(inpstr(lc2:lcl),*) realval(1)
+         cf2     = realval(1)
 c
       else
 c

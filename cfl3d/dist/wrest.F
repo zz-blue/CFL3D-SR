@@ -124,7 +124,7 @@ c
       common /fullns/ ifullns
       common /curvat/ isarc2d,sarccr3,ieasmcc2d,isstrc,sstrc_crc,
      .        isar,crot,isarc3d
-      common /des/ cdes,ides,cddes,cdesamd,lfe,cdt1,clim,lnwsc
+      common /des/ cdes,ides,cddes,cdesamd,lfe,cdt1,clim,lnwsc,cf1,cf2
       integer iflag(6)
 c
 #if defined DIST_MPI
