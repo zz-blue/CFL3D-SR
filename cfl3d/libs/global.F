@@ -229,7 +229,8 @@ c
       
       common /group/ maxgroup           !zyf
       common /mass_group/ xmassflow_target(10)    !zyf
-      common /des/ cdes,ides,cddes,cdesamd,lfe,cdt1,clim,lnwsc,cf1,cf2
+      common /des/ cdes,ides,cddes,cdesamd,lfe,cdt1,clim,lnwsc,cf1,cf2,
+     .        lsftblnd
       
       character*50  groupfile
       

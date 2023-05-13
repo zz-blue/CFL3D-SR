@@ -41,7 +41,8 @@ c
       common /twod/ i2d
       common /zero/ iexp
       common /axisym/ iaxi2plane,iaxi2planeturb,istrongturbdis,iforcev0
-      common /des/ cdes,ides,cddes,cdesamd,lfe,cdt1,clim,lnwsc,cf1,cf2
+      common /des/ cdes,ides,cddes,cdesamd,lfe,cdt1,clim,lnwsc,cf1,cf2,
+     .        lsftblnd
 c
       if(ides.eq.11) then
 c     maximum length of edges

@@ -93,7 +93,8 @@ c
       common /memry/ lowmem_ux
       common /constit/ i_nonlin,c_nonlin,snonlin_lim
       common /numerics/ iblend,lxblend,blendlim(2)
-      common /des/ cdes,ides,cddes,cdesamd,lfe,cdt1,clim,lnwsc,cf1,cf2
+      common /des/ cdes,ides,cddes,cdesamd,lfe,cdt1,clim,lnwsc,cf1,cf2,
+     .        lsftblnd
 c
       if (icall .eq. 0) then
          ierrflg = -99

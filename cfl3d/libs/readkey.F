@@ -137,7 +137,8 @@ c
       common /massflow_control/ imass_start, xmass_slope !zyf
       common /ibc2003/ ibc2003_grid_direction !zyf
       common /numerics/ iblend,lxblend,blendlim(2)
-      common /des/ cdes,ides,cddes,cdesamd,lfe,cdt1,clim,lnwsc,cf1,cf2
+      common /des/ cdes,ides,cddes,cdesamd,lfe,cdt1,clim,lnwsc,cf1,cf2,
+     .        lsftblnd
       common /unclass/ ioffbody,isample
       
       ptotratio=0.0
@@ -1090,6 +1091,11 @@ c     0.2 in Shur et al., 2015
 c     cf2 in ff
 c     large value yields rapid switching
       cf2         = 6.0
+      nkey        = nkey + 1
+      
+c     soft blending based on fdf
+c     larger Cdt1 needed when soft blending used
+      lsftblnd    = 0
       nkey        = nkey + 1
 c
 c*********************************************
@@ -2186,6 +2192,9 @@ c
          lc2 = lc2 +1
          read(inpstr(lc2:lcl),*) realval(1)
          cf2     = realval(1)
+      else if (inpstr(lc1:lc2).eq.'lsftblnd') then
+         lc2 = lc2 +1
+         read(inpstr(lc2:lcl),*) lsftblnd
 c
       else
 c

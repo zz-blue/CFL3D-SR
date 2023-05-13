@@ -257,7 +257,8 @@ c
      . ,cd_targ_value(10),cdp_targ_value(10),cdf_targ_value(10)       !zyf   阻力分量
      . ,cdt_targ_value(10)                                            !zyf   阻力分量
       common /numerics/ iblend,lxblend,blendlim(2)
-      common /des/ cdes,ides,cddes,cdesamd,lfe,cdt1,clim,lnwsc,cf1,cf2
+      common /des/ cdes,ides,cddes,cdesamd,lfe,cdt1,clim,lnwsc,cf1,cf2,
+     .        lsftblnd
       common /unclass/ ioffbody,isample
 #if defined DIST_MPI
 c
@@ -642,6 +643,7 @@ c
          work(nlast+210) = lnwsc
          work(nlast+211) = cf1
          work(nlast+212) = cf2
+         work(nlast+213) = lsftblnd
          
          nlast = nlast+nkey
       end if
@@ -1036,6 +1038,7 @@ c
          lnwsc              = int(work(nlast+210))
          cf1                = work(nlast+211)
          cf2                = work(nlast+212)
+         lsftblnd           = int(work(nlast+213))
       end if
 c
 c**************************
