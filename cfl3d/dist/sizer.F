@@ -311,7 +311,7 @@ c
       common /avgdata/ xnumavg,iteravg,xnumavg2,ipertavg,npertavg,
      .      iclcd,isubit_r,icallavg
       common /des/ cdes,ides,cddes,cdesamd,lfe,cdt1,clim,lnwsc,cf1,cf2,
-     .        lsftblnd
+     .        llesblnd
       common /plot3dtyp/ ifunct
 c
       icall  = 0

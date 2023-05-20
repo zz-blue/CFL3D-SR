@@ -68,7 +68,7 @@ c
       common /sa_options/ i_saneg,i_sanoft2,sa_cw2,sa_cw3,sa_cv1,sa_ct3,
      .                    sa_ct4,sa_cb1,sa_cb2,sa_sigma,sa_karman
       common /des/ cdes,ides,cddes,cdesamd,lfe,cdt1,clim,lnwsc,cf1,cf2,
-     .        lsftblnd
+     .        llesblnd
 c
 
       dimension q(jdim,kdim,idim,5),sj(jdim,kdim,idim-1,5),

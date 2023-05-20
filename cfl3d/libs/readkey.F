@@ -138,7 +138,7 @@ c
       common /ibc2003/ ibc2003_grid_direction !zyf
       common /numerics/ iblend,lxblend,blendlim(2)
       common /des/ cdes,ides,cddes,cdesamd,lfe,cdt1,clim,lnwsc,cf1,cf2,
-     .        lsftblnd
+     .        llesblnd
       common /unclass/ ioffbody,isample
       
       ptotratio=0.0
@@ -1093,9 +1093,10 @@ c     large value yields rapid switching
       cf2         = 6.0
       nkey        = nkey + 1
       
-c     soft blending based on fdf
-c     larger Cdt1 needed when soft blending used
-      lsftblnd    = 0
+c     blending of two definitions of LES length scale
+c     no blending (0), linear blending (1), step function (2)
+c     large Cdt1 desired if linear blending used
+      llesblnd    = 2
       nkey        = nkey + 1
 c
 c*********************************************
@@ -2192,9 +2193,9 @@ c
          lc2 = lc2 +1
          read(inpstr(lc2:lcl),*) realval(1)
          cf2     = realval(1)
-      else if (inpstr(lc1:lc2).eq.'lsftblnd') then
+      else if (inpstr(lc1:lc2).eq.'llesblnd') then
          lc2 = lc2 +1
-         read(inpstr(lc2:lcl),*) lsftblnd
+         read(inpstr(lc2:lcl),*) llesblnd
 c
       else
 c

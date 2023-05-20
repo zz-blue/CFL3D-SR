@@ -86,7 +86,7 @@ c
       common /axisym/ iaxi2plane,iaxi2planeturb,istrongturbdis,iforcev0
       common /numerics/ iblend,lxblend,blendlim(2)
       common /des/ cdes,ides,cddes,cdesamd,lfe,cdt1,clim,lnwsc,cf1,cf2,
-     .        lsftblnd
+     .        llesblnd
 c
       dimension q(jdim,kdim,idim,5),sj(jdim,kdim,idim-1,5),
      + sk(jdim,kdim,idim-1,5),si(jdim,kdim,idim,5),vol(jdim,kdim,idim-1)
@@ -2465,12 +2465,16 @@ c       AMD-IDDES
               rf   = fnu(j,k,i)/ccmax(vist3d(j,k,i)-xmuf,1.e-6*xmuf)
               ff   = cctanh((cf1*rf)**cf2)
               fdf  = ccmax(fd,ff)
-c             soft/sharp blending
-              if (lsftblnd.eq.0) then
-               if (fdf.gt.0.01) xls = cdes*deltam
-              else
+c             blending of two definitions of LES length scale
+              if (llesblnd.eq.1) then
                xls  = fdf*(cdes*deltam) + (1.-fdf)*xls
-              end if
+              elseif (llesblnd.eq.2) then
+               if (fdf.gt.0.01) xls = cdes*deltam
+              elseif (llesblnd.eq.3) then
+               xls  = fd*(cdes*deltam) + (1.-fd)*xls
+              elseif (llesblnd.eq.4) then
+               if (fd.gt.0.01) xls = cdes*deltam
+              endif
               if (lnwsc.eq.1) then
                xls = ccmin(cdes*0.15*ccmax(dist,deltam),xls)
               end if
@@ -2512,12 +2516,16 @@ c       modified/simplified SLA-IDDES
               rf   = fnu(j,k,i)/ccmax(vist3d(j,k,i)-xmuf,1.e-6*xmuf)
               ff   = cctanh((cf1*rf)**cf2)
               fdf  = ccmax(fd,ff)
-c             soft/sharp blending
-              if (lsftblnd.eq.0) then
-               if (fdf.gt.0.01) xls = cdes*deltam
-              else
+c             blending of two definitions of LES length scale
+              if (llesblnd.eq.1) then
                xls  = fdf*(cdes*deltam) + (1.-fdf)*xls
-              end if
+              elseif (llesblnd.eq.2) then
+               if (fdf.gt.0.01) xls = cdes*deltam
+              elseif (llesblnd.eq.3) then
+               xls  = fd*(cdes*deltam) + (1.-fd)*xls
+              elseif (llesblnd.eq.4) then
+               if (fd.gt.0.01) xls = cdes*deltam
+              endif
               if (lnwsc.eq.1) then
                xls = ccmin(cdes*0.15*ccmax(dist,deltam),xls)
               end if

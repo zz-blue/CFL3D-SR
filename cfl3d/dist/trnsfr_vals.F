@@ -258,7 +258,7 @@ c
      . ,cdt_targ_value(10)                                            !zyf   ×èÁ¦·ÖÁ¿
       common /numerics/ iblend,lxblend,blendlim(2)
       common /des/ cdes,ides,cddes,cdesamd,lfe,cdt1,clim,lnwsc,cf1,cf2,
-     .        lsftblnd
+     .        llesblnd
       common /unclass/ ioffbody,isample
 #if defined DIST_MPI
 c
@@ -643,7 +643,7 @@ c
          work(nlast+210) = lnwsc
          work(nlast+211) = cf1
          work(nlast+212) = cf2
-         work(nlast+213) = lsftblnd
+         work(nlast+213) = llesblnd
          
          nlast = nlast+nkey
       end if
@@ -1038,7 +1038,7 @@ c
          lnwsc              = int(work(nlast+210))
          cf1                = work(nlast+211)
          cf2                = work(nlast+212)
-         lsftblnd           = int(work(nlast+213))
+         llesblnd           = int(work(nlast+213))
       end if
 c
 c**************************
