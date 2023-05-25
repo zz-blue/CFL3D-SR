@@ -2454,12 +2454,15 @@ c       AMD-IDDES
               end if
               dist = ccabs(smin(j,k,i))
               xls2 = xlesfr(j,k,i)
-              if(clim.lt.0) then
+              if (clim.eq.-1.) then
                xls = sqrt(abs(xls2))
-              else
+              elseif (clim.ne.-1. .and. clim.lt.0.) then
+               xls = sqrt(ccmax(xls2,0.))
+               xls = ccmax(xls,(-clim)*cdes*deltam)
+              elseif (clim.ne.-1. .and. clim.gt.0.) then
                xls = sqrt(ccmax(xls2,0.))
                xls = ccmax(xls,clim*cdes*vol(j,k,i)**0.33)
-              end if
+              endif
               fd   = fdsav(j,k,i)
               xmuf = tur10(2)/tur10(1) !muf=nuf
               rf   = fnu(j,k,i)/ccmax(vist3d(j,k,i)-xmuf,1.e-6*xmuf)
