@@ -87,7 +87,7 @@ c
          f(i,4) = f4*area(i)
          f(i,5) = f5*area(i)
          
-         end do     
+         end do
       return
       end
       
