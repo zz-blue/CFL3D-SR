@@ -812,20 +812,24 @@ c
 #endif
 c
       if (isample .gt. 0 ) then
+#ifdef INTEL
         inquire(directory='sample',exist=isthere)
         if(.not.isthere) then
           call system('mkdir sample')
         end if
+#endif
         iunit = 700
         do ismp=1,nsmp
           write(string,4001) ismp
           string = 'smp_'//trim(string)
           nbl = ismpinfo(ismp,1)
           if (mblk2nd(nbl).eq.myid) then
+#ifdef INTEL
           inquire(directory='sample'//dltr//trim(string),exist=isthere)
           if(.not.isthere) then
             call system('cd sample && mkdir '//string)
           end if
+#endif
 c
           string = 'sample'//dltr//trim(string)//dltr
 c

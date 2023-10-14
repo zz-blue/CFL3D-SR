@@ -155,7 +155,7 @@ c
 c
       write(iunit+5,28)
      .ntt,(((xw(jw,kw,iw,5),jw=1,jdw),kw=1,kdw),iw=1,idw)
-   28 format(i6,<npoint>(1x,e11.4))
+   28 format(i6,'(*(1x,e11.4))')
 c
       return   !below never used
 c     ******************modification ended**********************

@@ -566,7 +566,7 @@ c
 
       if (icgns .ne. 1) then
       !open(unit=1,file=grid,form='unformatted',status='old')
-      open(unit=1,file=grid,form='binary',status='old')
+      open(unit=1,file=grid,access='stream',status='old')
       open(unit=2,file=restrt,form='unformatted',status='unknown')
       end if
       open(unit=20,file=pplunge,form='formatted',status='unknown')

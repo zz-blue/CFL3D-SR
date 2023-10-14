@@ -1920,7 +1920,7 @@ c
      .                     jc,kc,ic,wk(lres),w(lqrc),wk(lwj0),
      .                     js,ks,is,je,ke,ie,nbl,nblc,
      .                     w(lvis),w(lvtc),w(lxib),w(lxtc),
-     .                     nou,bou,nbuf,ibufdim,nummem,)
+     .                     nou,bou,nbuf,ibufdim,nummem)
             end if
 c
          end if
