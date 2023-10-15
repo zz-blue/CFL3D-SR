@@ -73,7 +73,7 @@ c
 c     output convergence history for mean-flow equations
 c
       write(12,2) (real(title(i)),i=1,20)
-    2 format(2h# ,20a4)
+    2 format("# " ,20a4)
 c
       write(12,'(''# Mach='',e12.4,'', alpha='',e12.4,
      . '', ReUe='',e12.4)') real(xmach),real(alphw),real(reue)

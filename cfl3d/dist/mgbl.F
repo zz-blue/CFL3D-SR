@@ -806,7 +806,7 @@ c
         
       end if
 c 
-      dltr = '\'
+      dltr = '\\'
 #ifdef LINUX
       dltr = '/'
 #endif

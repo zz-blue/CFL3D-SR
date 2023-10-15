@@ -440,8 +440,8 @@ c
       end if
       if (irest .eq. 0 .and. iteravg .eq. 2) then
         write(iunit11,98)
-   98   format(/,49h when irest=0, iteravg=2 starts running-average,
-     .   32h from scratch (as if iteravg=1),/)
+   98   format(/,47h when irest=0, iteravg=2 starts running-average,
+     .   31h from scratch (as if iteravg=1),/)
       end if
 c 
       fmax   = ccabs(fmax)
