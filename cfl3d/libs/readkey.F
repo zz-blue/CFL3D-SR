@@ -133,7 +133,7 @@ c
       common /cl_targ_control/ cl_targ_control(10),cl_targ_value(10)  !zyf   定义是否需要考虑控制面升力
      . ,cd_targ_value(10),cdp_targ_value(10),cdf_targ_value(10)       !zyf   阻力分量
      . ,cdt_targ_value(10)                                            !zyf   阻力分量
-      common /massflow/ xmassflow_now(10) , dpratio(10),ptotratio(10) !zyf
+      common /massflow/ xmassflow_now(10),dpratio(10),ptotratio(10) !zyf
       common /massflow_control/ imass_start, xmass_slope !zyf
       common /ibc2003/ ibc2003_grid_direction !zyf
       common /numerics/ iblend,lxblend,blendlim(2)
