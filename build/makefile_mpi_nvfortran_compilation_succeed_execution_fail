@@ -46,8 +46,8 @@
 # *************** COMPILER FLAG DEFINITIONS (MACHINE SPECIFIC) ***************
 #                 (CURRENT DEFINITIONS FOR LINUX ARCHITECTURE)
 
-FFLAG        = -O0 -traceback -module /home/mchao/code/cfl3d_6.8.1/build/$(CFLLIBSD) 
-FFLAG_SPEC   = -O0 -traceback -module /home/mchao/code/cfl3d_6.8.1/build/$(CFLLIBSD)
+FFLAG        = -O0 -traceback -module /home/mchao/document/code/cfl3d/build/$(CFLLIBSD) 
+FFLAG_SPEC   = -O0 -traceback -module /home/mchao/document/code/cfl3d/build/$(CFLLIBSD)
 PREC         = -r8
 PREC_MPI     = -DDBLE_PRECSN
 LFLAG        = -traceback -Knoieee 
