@@ -46,8 +46,8 @@
 # *************** COMPILER FLAG DEFINITIONS (MACHINE SPECIFIC) ***************
 #                 (CURRENT DEFINITIONS FOR LINUX ARCHITECTURE)
 
-FFLAG        = -O0 -w -fbacktrace -fallow-argument-mismatch -I /home/mchao/CFL3D/build/$(CFLLIBSD) 
-FFLAG_SPEC   = -O0 -w -fbacktrace -fallow-argument-mismatch -I /home/mchao/CFL3D/build/$(CFLLIBSD)
+FFLAG        = -O0 -fbacktrace -fallow-argument-mismatch -I /home/mchao/code/CFL3D/build/$(CFLLIBSD) 
+FFLAG_SPEC   = -O0 -fbacktrace -fallow-argument-mismatch -I /home/mchao/code/CFL3D/build/$(CFLLIBSD)
 PREC         = -fdefault-real-8
 PREC_MPI     = -DDBLE_PRECSN
 LFLAG        = 
