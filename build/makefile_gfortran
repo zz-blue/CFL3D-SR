@@ -46,8 +46,8 @@
 # *************** COMPILER FLAG DEFINITIONS (MACHINE SPECIFIC) ***************
 #                 (CURRENT DEFINITIONS FOR LINUX ARCHITECTURE)
 
-FFLAG        = -g -O0 -fbacktrace -fallow-argument-mismatch -I ../../$(CFLLIBSD) 
-FFLAG_SPEC   = -g -O0 -fbacktrace -fallow-argument-mismatch -I ../../$(CFLLIBSD)
+FFLAG        = -g -ffpe-trap=zero,overflow,underflow,invalid -O0 -fbacktrace -fallow-argument-mismatch -I ../../$(CFLLIBSD) 
+FFLAG_SPEC   = -g -ffpe-trap=zero,overflow,underflow,invalid -O0 -fbacktrace -fallow-argument-mismatch -I ../../$(CFLLIBSD)
 PREC         = -fdefault-real-8
 PREC_MPI     = -DDBLE_PRECSN
 LFLAG        = 
