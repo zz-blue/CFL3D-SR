@@ -1295,9 +1295,13 @@ c        output solution
       end if
 #     else
       do l=1,leq
+        print *, 'l=', l
          do i=1,iw
             do k=1,kw
                do j=1,jw
+c                 allow floating-point exception, so allow large but useless 
+c                 xv values that occur during the initial transient iterations 
+c                 (e.g. quantities relevant to velocity gradients at the walls)
                   xw(j,k,i,l) = xv(j,k,i,l)
                end do
             end do

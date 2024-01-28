@@ -418,6 +418,7 @@ c       all other models (ivmx=6,7,8,12,14)
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!用粗糙度模拟小肋 zyf
           ii = i-ista+1
           kk = k-ksta+1
+          if(bcdata(kk,ii,ip,3) > 0) then
           i_rib = int(bcdata(kk,ii,ip,3))
           if(i_rib >= 1)then    ! =1表示采用相等的 Lg+ 的小肋
            xg_rib = bcdata(kk,ii,ip,4) ! Lg+小肋的等效高度
@@ -432,6 +433,7 @@ c       all other models (ivmx=6,7,8,12,14)
           endif         
           SR    = rib_C1/((xg_rib-rib_C2)**rib_Cn+rib_C3)
           tj0(k,i,1,1) = 2.*(tau_w/fnu*SR)-tursav(j,k,i,1)       
+          endif
           endif
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
           tj0(k,i,2,1) = -tursav(j,k,i,2)
@@ -771,6 +773,7 @@ c       all other models (ivmx=6,7,8,12,14)
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!用粗糙度模拟小肋 zyf
           ii = i-ista+1
           kk = k-ksta+1
+          if(bcdata(kk,ii,ip,3) > 0) then
           i_rib = int(bcdata(kk,ii,ip,3))
           if(i_rib >= 1)then    ! =1表示采用相等的 Lg+ 的小肋
            xg_rib = bcdata(kk,ii,ip,4) ! Lg+小肋的等效高度
@@ -785,6 +788,7 @@ c       all other models (ivmx=6,7,8,12,14)
           endif         
           SR    = rib_C1/((xg_rib-rib_C2)**rib_Cn+rib_C3)
           tj0(k,i,1,3) = 2.*(tau_w/fnu*SR)-tursav(j,k,i,1)    
+          endif
           endif
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
           tj0(k,i,2,3) = -tursav(j,k,i,2)
@@ -1124,6 +1128,7 @@ c       all other models (ivmx=6,7,8,12,14)
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!用粗糙度模拟小肋 zyf
           ii = i-ista+1
           jj = j-jsta+1
+          if(bcdata(jj,ii,ip,3) > 0) then
           i_rib = int(bcdata(jj,ii,ip,3))
           if(i_rib >= 1)then    ! =1表示采用相等的 Lg+ 的小肋
           xg_rib = bcdata(jj,ii,ip,4) ! Lg+小肋的等效高度
@@ -1138,6 +1143,7 @@ c       all other models (ivmx=6,7,8,12,14)
           endif         
           SR    = rib_C1/((xg_rib-rib_C2)**rib_Cn+rib_C3)
           tk0(j,i,1,1) = 2.*(tau_w/fnu*SR)-tursav(j,k,i,1)          
+          endif
           endif
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
           tk0(j,i,2,1) = -tursav(j,k,i,2)
@@ -1477,6 +1483,7 @@ c       all other models (ivmx=6,7,8,12,14)
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!用粗糙度模拟小肋 zyf
           ii = i-ista+1
           jj = j-jsta+1
+          if(bcdata(jj,ii,ip,3) > 0) then
           i_rib = int(bcdata(jj,ii,ip,3))
           if(i_rib >= 1)then    ! =1表示采用相等的 Lg+ 的小肋
           xg_rib = bcdata(jj,ii,ip,4) ! Lg+小肋的等效高度
@@ -1491,6 +1498,7 @@ c       all other models (ivmx=6,7,8,12,14)
           endif         
           SR    = rib_C1/((xg_rib-rib_C2)**rib_Cn+rib_C3)
           tk0(j,i,1,3) = 2.*(tau_w/fnu*SR)-tursav(j,k,i,1)        
+          endif
           endif
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
           tk0(j,i,2,3) = -tursav(j,k,i,2)
@@ -1830,6 +1838,7 @@ c       all other models (ivmx=6,7,8,12,14)
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!用粗糙度模拟小肋 zyf
           kk = k-ksta+1
           jj = j-jsta+1
+          if(bcdata(jj,kk,ip,3) > 0) then
           i_rib = int(bcdata(jj,kk,ip,3))
           if(i_rib >= 1)then    ! =1表示采用相等的 Lg+ 的小肋
           xg_rib = bcdata(jj,kk,ip,4) ! Lg+小肋的等效高度
@@ -1844,6 +1853,7 @@ c       all other models (ivmx=6,7,8,12,14)
           endif         
           SR    = rib_C1/((xg_rib-rib_C2)**rib_Cn+rib_C3)
           ti0(j,k,1,1) = 2.*(tau_w/fnu*SR)-tursav(j,k,i,1)       
+          endif
           endif
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
           ti0(j,k,2,1) = -tursav(j,k,i,2)
@@ -2183,6 +2193,7 @@ c       all other models (ivmx=6,7,8,12,14)
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!用粗糙度模拟小肋 zyf
           kk = k-ksta+1
           jj = j-jsta+1
+          if(bcdata(jj,kk,ip,3) > 0) then
           i_rib = int(bcdata(jj,kk,ip,3))
           if(i_rib >= 1)then    ! =1表示采用相等的 Lg+ 的小肋
           xg_rib = bcdata(jj,kk,ip,4) ! Lg+小肋的等效高度
@@ -2197,6 +2208,7 @@ c       all other models (ivmx=6,7,8,12,14)
           endif         
           SR    = rib_C1/((xg_rib-rib_C2)**rib_Cn+rib_C3)
           ti0(j,k,1,3) = 2.*(tau_w/fnu*SR)-tursav(j,k,i,1)     
+          endif
           endif
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
           ti0(j,k,2,3) = -tursav(j,k,i,2)
