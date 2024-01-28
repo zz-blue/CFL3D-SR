@@ -42,7 +42,6 @@ FSRC_DIST = \
     dynptch.F        \
     findmin_new.F    \
     forceout.F       \
-    varnam.F         \
     mgbl.F           \
     mgblk.F          \
     newalpha.F       \

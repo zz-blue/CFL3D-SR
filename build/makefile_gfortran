@@ -46,8 +46,8 @@
 # *************** COMPILER FLAG DEFINITIONS (MACHINE SPECIFIC) ***************
 #                 (CURRENT DEFINITIONS FOR LINUX ARCHITECTURE)
 
-FFLAG        = -O0 -fbacktrace -fallow-argument-mismatch -I /home/mchao/code/CFL3D/build/$(CFLLIBSD) 
-FFLAG_SPEC   = -O0 -fbacktrace -fallow-argument-mismatch -I /home/mchao/code/CFL3D/build/$(CFLLIBSD)
+FFLAG        = -g -O0 -fbacktrace -fallow-argument-mismatch -I ../../$(CFLLIBSD) 
+FFLAG_SPEC   = -g -O0 -fbacktrace -fallow-argument-mismatch -I ../../$(CFLLIBSD)
 PREC         = -fdefault-real-8
 PREC_MPI     = -DDBLE_PRECSN
 LFLAG        = 
@@ -58,7 +58,7 @@ CGNS_INCDIR  =
 CPP          = cpp
 CPPFLAG      = -P
 CPPOPT       =  $(MPI_INCDIR) -DDIST_MPI $(PREC_MPI)
-CPPOPT_SP    = -DP3D_SINGLE -DLINUX -DFASTIO -DGENERIC -DNOREDIRECT $(PREC_MPI) $(CGNS_INCDIR)
+CPPOPT_SP    = -DP3D_SINGLE -DNOREDIRECT $(PREC_MPI) $(CGNS_INCDIR)
 CPPOPT_CMPLX = -DCMPLX
 FTN          = mpif90
 CC           = mpicc
