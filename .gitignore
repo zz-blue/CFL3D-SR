@@ -363,4 +363,8 @@ MigrationBackup/
 FodyWeavers.xsd
 
 #
-**.o
+*.o
+*.mod
+*.a
+cfl3d_mpi
+cfl3d_seq

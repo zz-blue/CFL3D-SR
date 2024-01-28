@@ -318,11 +318,11 @@ c
      .                  iturbord,tur1cutlev,tur2cutlev
       common /deformz/ beta1,beta2,alpha1,alpha2,isktyp,negvol,meshdef,
      .                 nsprgit,ndgrd,ndwrt
-      common /massflow/ xmassflow_now(10),dpratio(10),ptotratio(10)   !zyf Á÷Á¿¿ØÖÆ
+      common /massflow/ xmassflow_now(10),dpratio(10),ptotratio(10)   !zyf ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
       common /mass_group/ xmassflow_target(10)    !zyf
-      common /cl_targ_control/ cl_targ_control(10),cl_targ_value(10)  !zyf   ¶¨ÒåÊÇ·ñÐèÒª¿¼ÂÇ¿ØÖÆÃæÉýÁ¦
-     . ,cd_targ_value(10),cdp_targ_value(10),cdf_targ_value(10)       !zyf   ×èÁ¦·ÖÁ¿
-     . ,cdt_targ_value(10)                                            !zyf   ×èÁ¦·ÖÁ¿
+      common /cl_targ_control/ cl_targ_control(10),cl_targ_value(10)  !zyf   ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     . ,cd_targ_value(10),cdp_targ_value(10),cdf_targ_value(10)       !zyf   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     . ,cdt_targ_value(10)                                            !zyf   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
       common /numerics/ iblend,lxblend,blendlim(2) 
       common /unclass/ ioffbody,isample
 c
@@ -1400,7 +1400,7 @@ c
 c
       if (level.ne.levelg(nbl)) go to 8000
 c
-      call lead(nbl,lw,lw2,maxbl)     !!È·¶¨Ö¸±ê
+      call lead(nbl,lw,lw2,maxbl)     !!È·ï¿½ï¿½Ö¸ï¿½ï¿½
 c
 #if defined DIST_MPI
 c
@@ -1541,7 +1541,7 @@ c
      .              nblendg,nblstat,nblstag,w(lxib),w(lsig),
      .              w(lsqtq),w(lg),w(ltj0),w(ltk0),w(lti0),
      .              w(lxkb),w(lnbl),w(lvj0),w(lvk0),w(lvi0),w(lbcj),
-     .              w(lbck),w(lbci),nt,sumn,negn,w(lux),        !w(lux)ÊÇµ¼ÊýuxµÄµØÖ·£¡zyf
+     .              w(lbck),w(lbci),nt,sumn,negn,w(lux),        !w(lux)ï¿½Çµï¿½ï¿½ï¿½uxï¿½Äµï¿½Ö·ï¿½ï¿½zyf
      .              w(lxib2),w(lcmuv),w(lvolj0),w(lvolk0),w(lvoli0),
      .              nou,bou,nbuf,ibufdim,myid,mblk2nd,maxbl,maxseg,
      .              nbci0,nbcj0,nbck0,nbcidim,nbcjdim,nbckdim,ibcinfo,
@@ -2594,7 +2594,7 @@ c   Close data base
       end if
 
       
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Á÷Á¿¿ØÖÆ   zyf
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½   zyf
 #if defined DIST_MPI
           mass_true=0
           do imass=1,10
@@ -3009,53 +3009,54 @@ c
       end if
 c
 c     update plot3d file every movie time steps
-c        
+c     
       movabs = abs(movie)
-      if (real(dt).gt.0. .and. movabs.gt.0 .and. 
-     .      ntt.eq.ntt/movabs*movabs) then
-         lhdr   = 0
-         iwk1   = 1
-         iwk2   = iwk1  + 3*nplots
-         iwk3   = iwk2  + maxbl
-         iwork1 = iwork - iwk3 + 1
-         if (iwork1.le.0) then
-            nou(1) = min(nou(1)+1,ibufdim)
-            write(bou(nou(1),1),'(''stopping...not '',
-     $           ''enough integer '',
-     .           ''work space for subroutine qout'')')
-            call termn8(myid,-1,ibufdim,nbuf,bou,nou)
-         end if
-         do iii = 1,iwk3
-            iwk(iii) = 0
-         end do
-         do iii = 1,nwork
-            wk(iii) = 0.0
-         end do
-         call qout(iseq,lw,lw2,w,mgwk,wk,nwork,
-     .        nplots,iovrlp,iibg,kkbg,jjbg,ibcg,lbg,
-     .        ibpntsg,qb,lwdat,nbci0,nbcj0,nbck0,
-     .        nbcidim,nbcjdim,nbckdim,jbcinfo,kbcinfo,
-     .        ibcinfo,bcfilei,bcfilej,bcfilek,itrans,
-     .        irotat,idefrm,nblock,levelg,igridg,iviscg,jdimg,
-     .        kdimg,idimg,nblg,clw,ncycmax,nplot3d,
-     .        inpl3d,ip3dsurf,nprint,inpr,iadvance,mycomm,
-     .        myid,myhost,mblk2nd,nou,bou,nbuf,ibufdim,maxbl,
-     .        maxgr,maxseg,iitot,jsg,ksg,isg,jeg,keg,ieg,
-     .        ninter,windex,iindex,nblkpt,intmax,nsub1,maxxe,
-     .        nblk,nbli,limblk,isva,nblon,mxbli,thetay,
-     .        iwk(iwk1),iwk(iwk2),iwk(iwk3),iwork1,xorig,yorig,
-     .        zorig,period_miss,geom_miss,epsc0,epsrot,
-     .        isav_blk,isav_pat,isav_pat_b,isav_emb,isav_prd,
-     .        lbcprd,lbcemb,dthetxx,dthetyy,dthetzz,nblcg,lfgm,
-     .        istat2_bl,istat2_pa,istat2_pe,istat2_em,
-     .        istat_size,vormax,ivmax,jvmax,kvmax,bcfiles,
-     .        mxbcfil,iprnsurf,nummem,nvdsp)
-         do iii = 1,iwk3
-            iwk(iii) = 0
-         end do
-         do iii = 1,nwork
-            wk(iii) = 0.0
-         end do
+      if (real(dt).gt.0. .and. movabs.gt.0) then
+        if (ntt.eq.ntt/movabs*movabs) then
+          lhdr   = 0
+          iwk1   = 1
+          iwk2   = iwk1  + 3*nplots
+          iwk3   = iwk2  + maxbl
+          iwork1 = iwork - iwk3 + 1
+          if (iwork1.le.0) then
+             nou(1) = min(nou(1)+1,ibufdim)
+             write(bou(nou(1),1),'(''stopping...not '',
+     $            ''enough integer '',
+     .            ''work space for subroutine qout'')')
+             call termn8(myid,-1,ibufdim,nbuf,bou,nou)
+          end if
+          do iii = 1,iwk3
+             iwk(iii) = 0
+          end do
+          do iii = 1,nwork
+             wk(iii) = 0.0
+          end do
+          call qout(iseq,lw,lw2,w,mgwk,wk,nwork,
+     .         nplots,iovrlp,iibg,kkbg,jjbg,ibcg,lbg,
+     .         ibpntsg,qb,lwdat,nbci0,nbcj0,nbck0,
+     .         nbcidim,nbcjdim,nbckdim,jbcinfo,kbcinfo,
+     .         ibcinfo,bcfilei,bcfilej,bcfilek,itrans,
+     .         irotat,idefrm,nblock,levelg,igridg,iviscg,jdimg,
+     .         kdimg,idimg,nblg,clw,ncycmax,nplot3d,
+     .         inpl3d,ip3dsurf,nprint,inpr,iadvance,mycomm,
+     .         myid,myhost,mblk2nd,nou,bou,nbuf,ibufdim,maxbl,
+     .         maxgr,maxseg,iitot,jsg,ksg,isg,jeg,keg,ieg,
+     .         ninter,windex,iindex,nblkpt,intmax,nsub1,maxxe,
+     .         nblk,nbli,limblk,isva,nblon,mxbli,thetay,
+     .         iwk(iwk1),iwk(iwk2),iwk(iwk3),iwork1,xorig,yorig,
+     .         zorig,period_miss,geom_miss,epsc0,epsrot,
+     .         isav_blk,isav_pat,isav_pat_b,isav_emb,isav_prd,
+     .         lbcprd,lbcemb,dthetxx,dthetyy,dthetzz,nblcg,lfgm,
+     .         istat2_bl,istat2_pa,istat2_pe,istat2_em,
+     .         istat_size,vormax,ivmax,jvmax,kvmax,bcfiles,
+     .         mxbcfil,iprnsurf,nummem,nvdsp)
+          do iii = 1,iwk3
+             iwk(iii) = 0
+          end do
+          do iii = 1,nwork
+             wk(iii) = 0.0
+          end do
+        end if
       end if
 c
 c     update average solution every movie time steps
@@ -3063,55 +3064,56 @@ c     plot3d_avg if lhdr.ne.-1
 c
       movabs = abs(movie)
       if (iteravg .eq. 1 .or. iteravg .eq. 2) then
-        if (real(dt).gt.0. .and. movabs.gt.0 .and. 
-     .        ntt.eq.ntt/movabs*movabs) then
+        if (real(dt).gt.0. .and. movabs.gt.0) then 
+          if (ntt.eq.ntt/movabs*movabs) then
 c
-         lhdr   = 0
-         iwk1   = 1
-         iwk2   = iwk1  + 3*nplots
-         iwk3   = iwk2  + maxbl
-         iwork1 = iwork - iwk3 + 1
-         if (iwork1.le.0) then
-            nou(1) = min(nou(1)+1,ibufdim)
-            write(bou(nou(1),1),
-     $           '(''stopping...not enough integer '',
-     .              ''work space for subroutine qout_avg'')')
-            call termn8(myid,-1,ibufdim,nbuf,bou,nou)
-         end if
-         do iii = 1,iwk3
-            iwk(iii) = 0
-         end do
-         do iii = 1,nwork
-            wk(iii) = 0.0
-         end do
-c
-         call qout_avg(iseq,lw,lw2,w,mgwk,wk,nwork, 
-     .        nplots,iovrlp,iibg,kkbg,jjbg,ibcg,lbg,
-     .        ibpntsg,qb,lwdat,nbci0,nbcj0,nbck0,
-     .        nbcidim,nbcjdim,nbckdim,jbcinfo,kbcinfo,
-     .        ibcinfo,bcfilei,bcfilej,bcfilek,itrans,
-     .        irotat,idefrm,nblock,levelg,igridg,iviscg,jdimg,
-     .        kdimg,idimg,nblg,clw,ncycmax,nplot3d,
-     .        inpl3d,ip3dsurf,nprint,inpr,iadvance,mycomm,
-     .        myid,myhost,mblk2nd,nou,bou,nbuf,ibufdim,maxbl,
-     .        maxgr,maxseg,iitot,jsg,ksg,isg,jeg,keg,ieg,
-     .        ninter,windex,iindex,nblkpt,intmax,nsub1,maxxe,
-     .        nblk,nbli,limblk,isva,nblon,mxbli,thetay,
-     .        iwk(iwk1),iwk(iwk2),iwk(iwk3),iwork1,xorig,yorig,
-     .        zorig,period_miss,geom_miss,epsc0,epsrot,
-     .        isav_blk,isav_pat,isav_pat_b,isav_emb,isav_prd,
-     .        lbcprd,lbcemb,dthetxx,dthetyy,dthetzz,nblcg,lfgm,
-     .        istat2_bl,istat2_pa,istat2_pe,istat2_em,
-     .        istat_size,vormax,ivmax,jvmax,kvmax,bcfiles,
-     .        mxbcfil,iprnsurf,nt,movabs,nummem,nvdsp,
-     .        maxsw,nsw,iswinfo)
-         do iii = 1,iwk3
-            iwk(iii) = 0
-         end do
-         do iii = 1,nwork
-            wk(iii) = 0.0
-         end do
-c
+          lhdr   = 0
+          iwk1   = 1
+          iwk2   = iwk1  + 3*nplots
+          iwk3   = iwk2  + maxbl
+          iwork1 = iwork - iwk3 + 1
+          if (iwork1.le.0) then
+             nou(1) = min(nou(1)+1,ibufdim)
+             write(bou(nou(1),1),
+     $            '(''stopping...not enough integer '',
+     .               ''work space for subroutine qout_avg'')')
+             call termn8(myid,-1,ibufdim,nbuf,bou,nou)
+          end if
+          do iii = 1,iwk3
+             iwk(iii) = 0
+          end do
+          do iii = 1,nwork
+             wk(iii) = 0.0
+          end do
+c 
+          call qout_avg(iseq,lw,lw2,w,mgwk,wk,nwork, 
+     .         nplots,iovrlp,iibg,kkbg,jjbg,ibcg,lbg,
+     .         ibpntsg,qb,lwdat,nbci0,nbcj0,nbck0,
+     .         nbcidim,nbcjdim,nbckdim,jbcinfo,kbcinfo,
+     .         ibcinfo,bcfilei,bcfilej,bcfilek,itrans,
+     .         irotat,idefrm,nblock,levelg,igridg,iviscg,jdimg,
+     .         kdimg,idimg,nblg,clw,ncycmax,nplot3d,
+     .         inpl3d,ip3dsurf,nprint,inpr,iadvance,mycomm,
+     .         myid,myhost,mblk2nd,nou,bou,nbuf,ibufdim,maxbl,
+     .         maxgr,maxseg,iitot,jsg,ksg,isg,jeg,keg,ieg,
+     .         ninter,windex,iindex,nblkpt,intmax,nsub1,maxxe,
+     .         nblk,nbli,limblk,isva,nblon,mxbli,thetay,
+     .         iwk(iwk1),iwk(iwk2),iwk(iwk3),iwork1,xorig,yorig,
+     .         zorig,period_miss,geom_miss,epsc0,epsrot,
+     .         isav_blk,isav_pat,isav_pat_b,isav_emb,isav_prd,
+     .         lbcprd,lbcemb,dthetxx,dthetyy,dthetzz,nblcg,lfgm,
+     .         istat2_bl,istat2_pa,istat2_pe,istat2_em,
+     .         istat_size,vormax,ivmax,jvmax,kvmax,bcfiles,
+     .         mxbcfil,iprnsurf,nt,movabs,nummem,nvdsp,
+     .         maxsw,nsw,iswinfo)
+          do iii = 1,iwk3
+             iwk(iii) = 0
+          end do
+          do iii = 1,nwork
+             wk(iii) = 0.0
+          end do
+c         
+          end if
         end if
       end if
 c     
@@ -3247,7 +3249,7 @@ c
          iflag_smp = isample
          mov_smp = isample
          
-         if (real(dt).gt.0. .and. iflag_smp.gt.0) then   
+        if (real(dt).gt.0. .and. iflag_smp.gt.0) then   
             if (ntt.eq.ntt/mov_smp*mov_smp) then
                lhdr   = 0
                iwk1   = 1
@@ -3299,7 +3301,7 @@ c              regard (maxsmp,nsmp,ismpinfo) as (nplots,nprint,inpr)
                end do
                nframes = nframes + 1
             end if
-         end if
+        end if
 c     
       end if
 c
