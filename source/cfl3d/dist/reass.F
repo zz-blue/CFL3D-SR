@@ -380,7 +380,7 @@ C
       character*132 string1
       character*132 string2
       character*3 cigop
-      character*3 cnblock
+      character*4 cnblock !allow number of blocks (<1e4)
       character*6 cnous
       character*3 cigop45
       character*6 cnous45
@@ -504,9 +504,10 @@ cRJB...nblockp maintains sequential p/o for ppflag of 27
             jset=index(outstr,"setting")
             jtur=index(outstr,"turbulent")
             if(jset.gt.0 .and. jtur.gt.0)then
-             cnblock(1:1)=outstr(48:48)
-             cnblock(2:2)=outstr(49:49)
-             cnblock(3:3)=outstr(50:50)
+             cnblock(1:1)=outstr(47:47)
+             cnblock(2:2)=outstr(48:48)
+             cnblock(3:3)=outstr(49:49)
+             cnblock(4:4)=outstr(50:50)
              read(cnblock,*) nblock
              if(nblock.eq.nblockp+1)then
                write(lunfio0,'(a)')trim(outstr)
@@ -669,9 +670,10 @@ cRJB...nous should be 1
                  do no=1,nous
                   read(lunit,'(a)',err=998,end=997,iostat=ios)outstr
                   nrec(lunitm)=nrec(lunitm)+1
-                  cnblock(1:1)=outstr(48:48)
-                  cnblock(2:2)=outstr(49:49)
-                  cnblock(3:3)=outstr(50:50)
+                  cnblock(1:1)=outstr(47:47)
+                  cnblock(2:2)=outstr(48:48)
+                  cnblock(3:3)=outstr(49:49)
+                  cnblock(4:4)=outstr(50:50)
                   read(cnblock,*) nblock
 cRJB...decisions
 c                 if(n.eq.1 .or. nblock.eq.nblockp+1)then

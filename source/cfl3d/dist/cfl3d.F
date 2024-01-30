@@ -1455,7 +1455,11 @@ c   Close unit 11
       close(11)
 #   ifdef FASTIO
       if (myid.eq.myhost) then
-       call reass(maxgr,irdrea)
+c      cfl3d.out.reass is no longer generated. the subroutine reass 
+c      does not work as expected in some cases, where errors or infinite loop
+c      can occur in reass. the subroutine is a disaster to debug due to 
+c      many "go to", "if", etc., so it is wise to comment it out
+c      call reass(maxgr,irdrea)
       end if
 #   endif
       deallocate(irdrea)

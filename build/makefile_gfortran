@@ -46,8 +46,8 @@
 # *************** COMPILER FLAG DEFINITIONS (MACHINE SPECIFIC) ***************
 #                 (CURRENT DEFINITIONS FOR LINUX ARCHITECTURE)
 
-FFLAG        = -g -ffpe-trap=zero,overflow,underflow,invalid -O0 -fbacktrace -fallow-argument-mismatch -I ../../$(CFLLIBSD) 
-FFLAG_SPEC   = -g -ffpe-trap=zero,overflow,underflow,invalid -O0 -fbacktrace -fallow-argument-mismatch -I ../../$(CFLLIBSD)
+FFLAG        = -O2 -ffpe-summary='none' -fbacktrace -fallow-argument-mismatch -I ../../$(CFLLIBSD) 
+FFLAG_SPEC   = -O2 -ffpe-summary='none' -fbacktrace -fallow-argument-mismatch -I ../../$(CFLLIBSD)
 PREC         = -fdefault-real-8
 PREC_MPI     = -DDBLE_PRECSN
 LFLAG        = 
@@ -58,7 +58,8 @@ CGNS_INCDIR  =
 CPP          = cpp
 CPPFLAG      = -P
 CPPOPT       =  $(MPI_INCDIR) -DDIST_MPI $(PREC_MPI)
-CPPOPT_SP    = -DP3D_SINGLE -DNOREDIRECT $(PREC_MPI) $(CGNS_INCDIR)
+CPPOPT_SP    = -DP3D_SINGLE -DLINUX -DFASTIO -DGENERIC -DNOREDIRECT $(PREC_MPI) $(CGNS_INCDIR) # MPI with FASTIO
+#CPPOPT_SP    = -DP3D_SINGLE -DLINUX -DGENERIC -DNOREDIRECT $(PREC_MPI) $(CGNS_INCDIR)  # SEQ/MPI without FASTIO
 CPPOPT_CMPLX = -DCMPLX
 FTN          = mpif90
 CC           = mpicc
