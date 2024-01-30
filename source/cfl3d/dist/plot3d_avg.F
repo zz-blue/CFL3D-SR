@@ -1241,8 +1241,8 @@ c
 c               rho_avg,rho_rms
 c
                 xv(jw,kw,iw,1) = qavg(j,k,i,1)
-                xv(jw,kw,iw,2) = q2avg(j,k,i,1)
-     .                         - qavg(j,k,i,1)*qavg(j,k,i,1)
+                xv(jw,kw,iw,2) = sqrt(q2avg(j,k,i,1)
+     .                         - qavg(j,k,i,1)*qavg(j,k,i,1))
 c
 c               u_avg_x,u_avg_y,u_avg_z
 c
@@ -1252,12 +1252,12 @@ c
 c
 c               u_rms_x,u_rms_y,u_rms_z
 c
-                xv(jw,kw,iw,6) = q2avg(j,k,i,2)
-     .                         - qavg(j,k,i,2)*qavg(j,k,i,2)
-                xv(jw,kw,iw,7) = q2avg(j,k,i,3)
-     .                         - qavg(j,k,i,3)*qavg(j,k,i,3)
-                xv(jw,kw,iw,8) = q2avg(j,k,i,4)
-     .                         - qavg(j,k,i,4)*qavg(j,k,i,4)
+                xv(jw,kw,iw,6) = sqrt(q2avg(j,k,i,2)
+     .                         - qavg(j,k,i,2)*qavg(j,k,i,2))
+                xv(jw,kw,iw,7) = sqrt(q2avg(j,k,i,3)
+     .                         - qavg(j,k,i,3)*qavg(j,k,i,3))
+                xv(jw,kw,iw,8) = sqrt(q2avg(j,k,i,4)
+     .                         - qavg(j,k,i,4)*qavg(j,k,i,4))
 c
 c               u_rey_x,u_rey_y,u_rey_z
 c                    
@@ -1274,8 +1274,8 @@ c
 c               p,p_rms
 c
                 xv(jw,kw,iw,12) = qavg(j,k,i,5)
-                xv(jw,kw,iw,13) = q2avg(j,k,i,5)
-     .                          - qavg(j,k,i,5)*qavg(j,k,i,5)
+                xv(jw,kw,iw,13) = sqrt(q2avg(j,k,i,5)
+     .                          - qavg(j,k,i,5)*qavg(j,k,i,5))
 c
 c               T,mul,mut,omega,k,Ma
 c
@@ -1284,8 +1284,8 @@ c
                 ixv = ixv + 1
                 xv(jw,kw,iw,ixv) = qsavg(j,k,i,l)
                 ixv = ixv + 1
-                xv(jw,kw,iw,ixv) = qs2avg(j,k,i,l)
-     .                           - qsavg(j,k,i,l)*qsavg(j,k,i,l)
+                xv(jw,kw,iw,ixv) = sqrt(qs2avg(j,k,i,l)
+     .                           - qsavg(j,k,i,l)*qsavg(j,k,i,l))
                 end do
 c
 c               vort_avg_x,vort_avg_y,vort_avg_z
@@ -1300,14 +1300,14 @@ c
 c               vort_rms_x,vort_rms_y,vort_rms_z
 c
                 ixv = ixv + 1
-                xv(jw,kw,iw,ixv) = vd2avg(j,k,i,1)
-     .                           - vdavg(j,k,i,1)*vdavg(j,k,i,1)
+                xv(jw,kw,iw,ixv) = sqrt(vd2avg(j,k,i,1)
+     .                           - vdavg(j,k,i,1)*vdavg(j,k,i,1))
                 ixv = ixv + 1
-                xv(jw,kw,iw,ixv) = vd2avg(j,k,i,2)
-     .                           - vdavg(j,k,i,2)*vdavg(j,k,i,2)
+                xv(jw,kw,iw,ixv) = sqrt(vd2avg(j,k,i,2)
+     .                           - vdavg(j,k,i,2)*vdavg(j,k,i,2))
                 ixv = ixv + 1
-                xv(jw,kw,iw,ixv) = vd2avg(j,k,i,3)
-     .                           - vdavg(j,k,i,3)*vdavg(j,k,i,3)
+                xv(jw,kw,iw,ixv) = sqrt(vd2avg(j,k,i,3)
+     .                           - vdavg(j,k,i,3)*vdavg(j,k,i,3))
 c
 c               q0_avg,gradr,gradp...
 c
@@ -1315,8 +1315,8 @@ c
                 ixv = ixv + 1
                 xv(jw,kw,iw,ixv) = vdavg(j,k,i,l)
                 ixv = ixv + 1
-                xv(jw,kw,iw,ixv) = vd2avg(j,k,i,l)
-     .                           - vdavg(j,k,i,l)*vdavg(j,k,i,l)
+                xv(jw,kw,iw,ixv) = sqrt(vd2avg(j,k,i,l)
+     .                           - vdavg(j,k,i,l)*vdavg(j,k,i,l))
                 end do
 c
              end do
@@ -1472,10 +1472,10 @@ c     2D/3D share the same flow variables
               do i=1,iw
                 do j=1,jw
                   do k=1,kw
-                      xw(j,k,i,4)      = -xw(j,k,i,4)      !u_avg_y
-                      xw(j,k,i,9)      = -xw(j,k,i,9)      !u_rey_x
-                      xw(j,k,i,11)     = -xw(j,k,i,11)     !u_rey_z
-                      xw(j,k,i,23+lt2) = -xw(j,k,i,23+lt2) !vort_avg_y
+                      xw(j,k,i,4)      = -xw(j,k,i,4)      !u_avg_y in solver
+                      xw(j,k,i,9)      = -xw(j,k,i,9)      !u_rey_x in solver
+                      xw(j,k,i,11)     = -xw(j,k,i,11)     !u_rey_z in solver
+                      xw(j,k,i,23+lt2) = -xw(j,k,i,23+lt2) !vort_avg_y in solver
                   end do
                 end do
               end do

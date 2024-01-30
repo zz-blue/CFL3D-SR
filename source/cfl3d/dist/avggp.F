@@ -247,7 +247,7 @@ c
         do jw=1,jdw  
             !qsavg (jw,kw,iw,l)=0.0
             qs2avg(jw,kw,iw,l)=(qs2avg(jw,kw,iw,l)*(xnumavg-1.)
-     +       +xv(jw,kw,iw,2)*xv(jw,kw,iw,3))/xnumavg
+     +       +xv(jw,kw,iw,3)*xv(jw,kw,iw,4))/xnumavg
         end do
         end do
         end do
@@ -257,7 +257,7 @@ c
         do jw=1,jdw  
             !qsavg (jw,kw,iw,l)=0.0
             qs2avg(jw,kw,iw,l)=(qs2avg(jw,kw,iw,l)*(xnumavg-1.)
-     +       +xv(jw,kw,iw,1)*xv(jw,kw,iw,3))/xnumavg
+     +       +xv(jw,kw,iw,2)*xv(jw,kw,iw,4))/xnumavg
         end do
         end do
         end do 
@@ -267,7 +267,7 @@ c
         do jw=1,jdw  
             !qsavg (jw,kw,iw,l)=0.0
             qs2avg(jw,kw,iw,l)=(qs2avg(jw,kw,iw,l)*(xnumavg-1.)
-     +       +xv(jw,kw,iw,1)*xv(jw,kw,iw,2))/xnumavg
+     +       +xv(jw,kw,iw,2)*xv(jw,kw,iw,3))/xnumavg
         end do
         end do
         end do
