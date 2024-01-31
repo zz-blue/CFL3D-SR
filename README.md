@@ -1,5 +1,12 @@
 ## CFL3D-SR
 
+CFL3D-SR highlights scale-resolving (SR) simulation. Featured turbulence 
+model is an anisotropic minimum-dissipation IDDES model (AMD-IDDES).
+Inviscid flux scheme is a blended central/upwind scheme. Enhanced I/O
+functions include flow field averaging, animating and sampling.
+
+-------------
+
 CFL3D is a structured-grid, cell-centered, upwind-biased, Reynolds-averaged Navier-Stokes (RANS) code. It can be run
 in parallel on multiple grid zones with point-matched, patched, overset, or embedded connectivities. Both
 multigrid and mesh sequencing are available in time-accurate or steady-state modes.
@@ -7,13 +14,6 @@ multigrid and mesh sequencing are available in time-accurate or steady-state mod
 The most up-to-date information can be found on the web at:
 
 https://nasa.github.io/CFL3D/
-
-CFL3D-SR highlights scale-resolving (SR) simulation. Featured turbulence 
-model is an anisotropic minimum-dissipation IDDES model (AMD-IDDES).
-Inviscid flux scheme is a blended central/upwind scheme. Enhanced I/O
-functions include flow field averaging, animating and sampling.
-
--------------
 
 Copyright 2001 United States Government as represented by the Administrator
 of the National Aeronautics and Space Administration. All Rights Reserved.
