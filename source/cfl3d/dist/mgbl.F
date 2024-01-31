@@ -355,20 +355,20 @@ c
      .   4x,2(2h *))
          write(11,87)
          write(11,9990)
- 9990    format(2(2h *),43h   VERSION 6.7 :  Computational Fluids Lab,,
-     .   15h Mail Stop 128,,4x,2(2h *),
-     .   /2(2h *),18x,41hNASA Langley Research Center, Hampton, VA,
-     .   3x,2(2h *),/2(2h *),18x,32hRelease Date:  February  1, 2017,
-     .   12x,2(2h *))
+ 9990    format(2(2h *),42h   VERSION 6.7    :  Computational Fluids 
+     .   4hLab,,15h Mail Stop 128,,1x,2(2h *),
+     .   /2(2h *),21x,41hNASA Langley Research Center, Hampton, VA,
+     .   2(2h *),/2(2h *),21x,32hRelease Date:  February  1, 2017,
+     .   9x,2(2h *))
          write(11,9992)
- 9992    format(2(2h *),44h   VERSION 6.8 :  Maochao Xiao, Yufei Zhang,,
-     .   18x,2(2h *),
-     .   /2(2h *),18x,26hZiyu Zhou, Shaoguang Zhang,18x,2(2h *),
-     .   /2(2h *),18x,26hTsinghua University, China,18x,2(2h *),
-     .   /2(2h *),18x,34hSapienza University of Rome, Italy,10x,2(2h *),
-     .   /2(2h *),18x,33hContact: maochao.xiao@uniroma1.it,11x,2(2h *),
-     .   /2(2h *),27x,26hzhangyufei@tsinghua.edu.cn,9x,2(2h *),
-     .   /2(2h *),18x,29hRelease Date:  March  1, 2023,15x,2(2h *))
+ 9992    format(2(2h *),45h   VERSION 6.7-SR :  Maochao Xiao, Ziyu Zhou,
+     .   ,17x,2(2h *),
+     .   /2(2h *),21x,28hShaoguang Zhang, Yufei Zhang,13x,2(2h *),
+     .   /2(2h *),21x,26hTsinghua University, China,15x,2(2h *),
+     .   /2(2h *),21x,34hSapienza University of Rome, Italy,7x,2(2h *),
+     .   /2(2h *),21x,33hContact: maochao.xiao@uniroma1.it,8x,2(2h *),
+     .   /2(2h *),30x,26hzhangyufei@tsinghua.edu.cn,6x,2(2h *),
+     .   /2(2h *),21x,29hRelease Date:  March  1, 2023,12x,2(2h *))
 #ifdef CMPLX
          write(11,87)
          write(11,9991)
@@ -390,11 +390,11 @@ c
      +    '' available in time-accurate or'')')
          write(11,'(''steady-state modes.'')')
          write(11,'('' '')')
-         write(11,'(''VERSION 6.8'')')
-         write(11,'(''The version features high-fidelity hybrid'',
-     +    '' RANS-LES simulations. Turbulence'')')
-         write(11,'(''model is the anisotropic minimum-dissipation'',
-     +    '' IDDES model (AMD-IDDES).'')')
+         write(11,'(''VERSION 6.7-SR'')')
+         write(11,'(''The version highlights scale-resolving (SR)'',
+     +    '' simulation. Featured turbulence '')')
+         write(11,'(''model is an anisotropic'',
+     +    '' minimum-dissipation IDDES model (AMD-IDDES).'')')
          write(11,'(''Inviscid flux scheme is a blended'',
      +    '' central/upwind scheme. Enhanced I/O'')')
          write(11,'(''functions include flow field averaging,'',
