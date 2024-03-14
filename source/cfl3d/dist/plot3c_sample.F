@@ -111,7 +111,6 @@ c     ******************modification started********************
       jdw = (j2-j1)/j3 + 1
       kdw = (k2-k1)/k3 + 1
       idw = (i2-i1)/i3 + 1
-      npoint = jdw*kdw*idw
 c
       iw = 0
       do i=i1,i2,i3
@@ -155,7 +154,7 @@ c
 c
       write(iunit+5,28)
      .ntt,(((xw(jw,kw,iw,5),jw=1,jdw),kw=1,kdw),iw=1,idw)
-   28 format(i6,'(*(1x,e11.4))')
+   28 format(i6,*(1x,e11.4))
 c
       return   !below never used
 c     ******************modification ended**********************
