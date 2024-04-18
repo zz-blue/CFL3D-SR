@@ -466,11 +466,11 @@ c     must have the same function output
 c
       !if (abs(inpl3d(1,2)).gt.2) ifunc = inpl3d(1,2)
 c
-      do 60 n=1,np3d                   
+      do 60 n=1,np3d
       !do 60 n=1,nplot3d                                            
       if (n.eq.1) then
          if (myid .eq. myhost) then
-            call int2chr(buff,6,ntt)
+            write(buff,'(i6.6)') ntt
             movcrsg = output_dir(1:len_trim(output_dir)) //
      .                  '/field_crs_' // buff //".g"
             movcrsq = output_dir(1:len_trim(output_dir)) // 
@@ -1055,33 +1055,6 @@ c
       end if
       return
       end
-      
-      subroutine int2chr(chr,lenchr,iint)
-#   ifdef CMPLX
-      implicit complex(a-h,o-z)
-#   endif
-c
-      character(len=lenchr):: chr
-      
-      if(iint.lt.10) then
-          write(chr,'(i1)') iint
-          chr = "00000"//chr
-      elseif(iint.lt.100) then
-          write(chr,'(i2)') iint
-          chr = "0000"//chr
-      elseif(iint.lt.1000) then
-          write(chr,'(i3)') iint
-          chr = "000"//chr
-      elseif(iint.lt.10000) then
-          write(chr,'(i4)') iint
-          chr = "00"//chr
-      elseif(iint.lt.10000) then
-          write(chr,'(i5)') iint
-          chr = "0"//chr
-      elseif(iint.lt.100000) then
-          write(chr,'(i6)') iint
-          chr = ""//chr
-      end if
 c
       return
       end

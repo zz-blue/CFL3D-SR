@@ -481,10 +481,10 @@ c
       !if (abs(inpl3d(1,2)).gt.2) ifunc = inpl3d(1,2)
 c
       do 60 n=1,np3d
-      !do 60 n=1,nplot3d                                            
+      !do 60 n=1,nplot3d
       if (n.eq.1) then
          if (myid .eq. myhost) then
-            call int2chr(buff,6,ntt)
+            write(buff,'(i6.6)') ntt
             mov2dg = output_dir(1:len_trim(output_dir)) //
      .                  '/field_2d_' // buff //".g"
             mov2dq = output_dir(1:len_trim(output_dir)) // 
