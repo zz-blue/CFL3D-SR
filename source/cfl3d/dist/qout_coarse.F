@@ -1055,6 +1055,3 @@ c
       end if
       return
       end
-c
-      return
-      end
