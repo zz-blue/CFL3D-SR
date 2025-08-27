@@ -31,8 +31,7 @@ under the License.
 
 -------------
 
-A list of papers about / using CFL3D-SR  
-*(Citations are welcome)*
+A list of papers about / using CFL3D-SR, citations are welcome:
 
 - **A numerical investigation of sweep effects on turbulent flow over iced wings**  
   Z. Zhou, M. Xiao, J. Chen, L. Li, Y. Zhang  
