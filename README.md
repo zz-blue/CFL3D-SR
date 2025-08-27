@@ -28,3 +28,16 @@ distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
 WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the 
 License for the specific language governing permissions and limitations 
 under the License.
+
+-------------
+
+A list of papers about / using CFL3D-SR  
+*(Citations are welcome)*
+
+- **A numerical investigation of sweep effects on turbulent flow over iced wings**  
+  Z. Zhou, M. Xiao, J. Chen, L. Li, Y. Zhang  
+  *arXiv preprint* **arXiv:2507.15182**  
+
+- **Enhanced delayed detached-eddy simulation with anisotropic minimum dissipation subgrid length scale**  
+  Z. Zhou, M. Xiao, D. Li, Y. Zhang  
+  *Physics of Fluids* **37 (2)**  
